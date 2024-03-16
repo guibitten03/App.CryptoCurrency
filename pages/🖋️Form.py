@@ -1,6 +1,7 @@
 from library import *
 from utils.constants import *
 from services.Database import Database
+from services.Style import Style
 
 import datetime
 
@@ -8,6 +9,9 @@ st.set_page_config(layout="wide")
 
 st.title("🖋️ Crypto Currency Formulary")
 st.markdown("Insert Trade Information Bellow...")
+
+style = Style("assets/style.css")
+style._connect()
 
 database = Database(worksheets=[
     ("Data", 7)
