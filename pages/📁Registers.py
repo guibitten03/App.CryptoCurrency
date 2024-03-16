@@ -8,6 +8,7 @@ st.title("📁 Crypto Trades Registed")
 st.markdown("You can see all your trades bellow!")
 
 style = Style("assets/style.css")
+style._connect()
 
 database = Database(worksheets=[
     ("Data", 7)
