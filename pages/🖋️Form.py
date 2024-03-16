@@ -34,7 +34,7 @@ if register:
         st.warning("Report All Data.")
     else:
         register_data = pd.DataFrame([{
-            "Data": data,
+            "Data": data.strftime("%d-%m-%Y"),
             "Time": time,
             "Coin": coin,
             "Price": price,
