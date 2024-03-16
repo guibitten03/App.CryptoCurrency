@@ -23,7 +23,7 @@ sheet = database.worksheets["Data"].dropna(how="all")
 data = st.date_input("Trade date")
 time = st.time_input("Trade time", step=60)
 coin = st.selectbox("Select coin", options=COINS, index=False)
-price = st.number_input("Coin Price", step=0.01, value=None)
+price = st.number_input("Coin Price", step=0.0000000000000001, value=None)
 income = st.number_input("Value Invested", step=0.01, value=None)
 
 if price == None or income == None:
