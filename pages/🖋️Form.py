@@ -23,7 +23,7 @@ income = st.number_input("Value Invested", step=0.01, value=None)
 if price == None or income == None:
     amount = 0.0
 else:
-    amount = round(income / price)
+    amount = income / price
 
 
 status = st.selectbox("Operation", options=OPS, index=False)
