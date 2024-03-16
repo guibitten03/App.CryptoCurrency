@@ -11,7 +11,7 @@ database = Database(worksheets=[
     ("Data", 7)
 ])
 
-data = database.worksheets["Data"].dropna(how="all")
+sheet = database.worksheets["Data"].dropna(how="all")
 
 
 data = st.date_input("Trade date")
@@ -43,7 +43,7 @@ if register:
             "Status": status
         }])
 
-        updated_df = pd.concat([data, register_data], ignore_index=True)
+        updated_df = pd.concat([sheet, register_data], ignore_index=True)
 
         database.conn.update(worksheet="Data", data=updated_df)
 
