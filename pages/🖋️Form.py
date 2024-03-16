@@ -20,7 +20,10 @@ coin = st.selectbox("Select coin", options=COINS, index=False)
 price = st.number_input("Coin Price", step=0.01, value=None)
 income = st.number_input("Value Invested", step=0.01, value=None)
 
-amount = round((income / price), 2)
+if price == None or income == None:
+    amount = 0.0
+else:
+    amount = round((income / price), 2)
 
 status = st.selectbox("Operation", options=OPS, index=False)
 
