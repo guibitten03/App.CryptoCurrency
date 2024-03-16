@@ -1,10 +1,13 @@
 from library import *
 from services.Database import Database
+from services.Style import Style
 
 st.set_page_config(layout="wide")
 
 st.title("📁 Crypto Trades Registed")
 st.markdown("You can see all your trades bellow!")
+
+style = Style("assets/style.css")
 
 database = Database(worksheets=[
     ("Data", 7)
