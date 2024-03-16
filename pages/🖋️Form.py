@@ -4,6 +4,8 @@ from services.Database import Database
 
 import datetime
 
+st.set_page_config(layout="wide")
+
 st.title("🖋️ Crypto Currency Formulary")
 st.markdown("Insert Trade Information Bellow...")
 
