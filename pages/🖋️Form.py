@@ -4,7 +4,7 @@ from services.Database import Database
 
 import datetime
 
-st.title("Crypto Currency Formulary")
+st.title("🖋️ Crypto Currency Formulary")
 st.markdown("Insert Trade Information Bellow...")
 
 database = Database(worksheets=[
@@ -23,7 +23,8 @@ income = st.number_input("Value Invested", step=0.01, value=None)
 if price == None or income == None:
     amount = 0.0
 else:
-    amount = round((income / price), 2)
+    amount = round(income / price)
+
 
 status = st.selectbox("Operation", options=OPS, index=False)
 
