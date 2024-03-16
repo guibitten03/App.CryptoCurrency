@@ -11,6 +11,6 @@ database = Database(worksheets=[
 
 data = database.worksheets["Data"].dropna(how="all")
 
-edit_data = st.data_editor(data)
+edit_data = st.data_editor(data,hide_index=True)
 
 database.conn.update(worksheet="Data", data=edit_data)
