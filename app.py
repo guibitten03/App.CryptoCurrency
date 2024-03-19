@@ -12,7 +12,7 @@ st.title("Analysis")
 
 coin = st.multiselect("Select Coin", options=COINS, default="Bitcoin")
 
-st.dataframe(sheet.loc[sheet['Coin'] in coin])
+st.dataframe(sheet.loc[sheet[['Coin']].isin(coin)])
 
 # line_chart = st.line_chart(sheet.loc[sheet['Coin'] in coin])
 
