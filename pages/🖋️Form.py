@@ -36,7 +36,7 @@ status = st.selectbox("Operation", options=OPS, index=False)
 
 fund = st.selectbox("Fundiciary", options=FUND, index=False)
 
-if (fund == "Dollar") and (fund != None):
+if (fund == "Dollar") and (price != None):
     price = price * 5
 
 register = st.button("Register")
