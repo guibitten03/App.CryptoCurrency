@@ -39,6 +39,8 @@ fund = st.selectbox("Fundiciary", options=FUND, index=False)
 if fund == "Dollar":
     price = price * 5
 
+print(fund)
+
 register = st.button("Register")
 
 if register:
