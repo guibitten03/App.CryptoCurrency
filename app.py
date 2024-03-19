@@ -3,4 +3,5 @@ from utils.constants import *
 
 st.title("Analysis")
 
-coin = st.selectbox("Select Coin", options=COINS, index=False)
+coin = st.multiselect("Select Coin", options=COINS, index=False)
+
