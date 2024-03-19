@@ -11,6 +11,7 @@ sheet = database.worksheets["Data"].dropna(how="all")
 st.title("Analysis")
 
 coin = st.multiselect("Select Coin", options=COINS, default="Bitcoin")
+print(coin)
 
 st.dataframe(sheet.loc[sheet[['Coin']] == "Bitcoin"])
 
