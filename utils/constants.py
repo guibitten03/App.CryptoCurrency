@@ -8,3 +8,8 @@ OPS = [
     "Buy",
     "Sell"
 ]
+
+FUND = [
+    "Dollar",
+    "Real"
+]

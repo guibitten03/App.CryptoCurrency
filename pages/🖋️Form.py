@@ -34,12 +34,18 @@ else:
 
 status = st.selectbox("Operation", options=OPS, index=False)
 
+fund = st.selectbox("Fundiciary", options=FUND, index=False)
+
+if fund == "Dollar":
+    price = price * 5
+
 register = st.button("Register")
 
 if register:
     if not data or not time or not coin or not price or not income or not status:
         st.warning("Report All Data.")
     else:
+
         register_data = pd.DataFrame([{
             "Data": data.strftime("%d-%m-%Y"),
             "Time": time,
