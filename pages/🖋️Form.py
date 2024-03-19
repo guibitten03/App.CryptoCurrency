@@ -31,10 +31,13 @@ if price == None or income == None:
 else:
     amount = income / price
 
+c1, c2 = st.columns(2, gap="small")
 
-status = st.selectbox("Operation", options=OPS, index=False)
+with c1:
+    status = st.selectbox("Operation", options=OPS, index=False)
 
-fund = st.selectbox("Fundiciary", options=FUND, index=False)
+with c2:
+    fund = st.selectbox("Fundiciary", options=FUND, index=False)
 
 if (fund == "Dollar") and (price != None):
     price = price * 5
