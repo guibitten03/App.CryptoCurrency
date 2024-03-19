@@ -29,3 +29,4 @@ bar_filtered_df = bar_filtered_df.groupby(by="Status")['Income'].sum()
 
 with c2:
     bar_chart = st.bar_chart(bar_filtered_df)
+
