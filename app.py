@@ -46,18 +46,21 @@ bar_filtered_df = bar_filtered_df.groupby(by="Status")['Income'].sum().reset_ind
 
 with c2:
     bar_purchase = go.Bar(x=['Buy'], y=bar_filtered_df[['Income']].iloc[0,:], name='Purchase', marker=dict(color='red'))
-    bar_sellof = go.Bar(x=['Sell'], y=bar_filtered_df[['Income']].values[1,:], name='Sale', marker=dict(color='green'))
+    try:
+        bar_sellof = go.Bar(x=['Sell'], y=bar_filtered_df[['Income']].iloc[1,:], name='Sale', marker=dict(color='green'))
 
-    layout = go.Layout(
-        title='Purchase and Sale Volum',
-        xaxis=dict(title='Coin'),
-        yaxis=dict(title='Values'),
-        barmode='group', 
-        margin=dict(l=20, r=20, b=20, t=40),
-        legend=dict(orientation='h'), 
-    )
+        layout = go.Layout(
+            title='Purchase and Sale Volum',
+            xaxis=dict(title='Coin'),
+            yaxis=dict(title='Values'),
+            barmode='group', 
+            margin=dict(l=20, r=20, b=20, t=40),
+            legend=dict(orientation='h'), 
+        )
 
-    fig = go.Figure(data=[bar_purchase, bar_sellof], layout=layout)
+        fig = go.Figure(data=[bar_purchase, bar_sellof], layout=layout)
+    except:
+        fig = go.Figure(data=[bar_purchase], layout=layout)
 
     st.plotly_chart(fig)
 
