@@ -7,7 +7,7 @@ st.title("📁 Crypto Trades Registed")
 st.markdown("You can see all your trades bellow!")
 
 database = Database(worksheets=[
-    ("Data", 7)
+    ("Data", 8)
 
 ])
 

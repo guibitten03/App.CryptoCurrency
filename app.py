@@ -5,7 +5,7 @@ from services.Database import Database
 st.set_page_config(layout="wide")
 
 database = Database(worksheets=[
-    ("Data", 7)
+    ("Data", 8)
 ])
 
 sheet = database.worksheets["Data"].dropna(how="all")
@@ -22,7 +22,7 @@ line_filtered_df['Mean Price'] = [mean_price for x in range(line_filtered_df.sha
 c1, c2 = st.columns(2, gap="small")
 
 with c1:
-    line_chart = st.line_chart(line_filtered_df, x="Data", y=["Price", "Mean Price"])
+    line_chart = st.line_chart(line_filtered_df, x="Data", y=["Price (R$)", "Mean Price"])
 
 bar_filtered_df = sheet[(sheet['Coin'] == coin)]
 bar_filtered_df = bar_filtered_df.groupby(by="Status")['Income'].sum()

@@ -14,7 +14,7 @@ style = Style("assets/style.css")
 style._connect()
 
 database = Database(worksheets=[
-    ("Data", 7)
+    ("Data", 8)
 ])
 
 sheet = database.worksheets["Data"].dropna(how="all")
@@ -26,21 +26,28 @@ coin = st.selectbox("Select coin", options=COINS, index=False)
 price = st.number_input("Coin Price", step=0.01, format="%.10f", value=None)
 income = st.number_input("Value Invested", step=0.01, value=None)
 
-if price == None or income == None:
-    amount = 0.0
-else:
-    amount = income / price
-
 c1, c2 = st.columns(2, gap="small")
 
 with c1:
     status = st.selectbox("Operation", options=OPS, index=False)
 
 with c2:
-    fund = st.selectbox("Fundiciary", options=FUND, index=False)
+    price_fund = st.toggle("Price in Dollar?")
+    income_fund = st.toggle("Income in Dollar?")
 
-if (fund == "Dollar") and (price != None):
-    price = price * 5
+dolar_price = 0.0
+if price != None:
+    if price_fund:
+        dolar_price = price
+        price = price * 5
+    else:
+        dolar_price = price / 5
+
+amount = 0.0
+if price != None and income != None:
+    amount = income / price
+    if income_fund:
+        income = income * 5
 
 register = st.button("Register")
 
@@ -53,7 +60,8 @@ if register:
             "Data": data.strftime("%d-%m-%Y"),
             "Time": time,
             "Coin": coin,
-            "Price": price,
+            "Price (R$)": price,
+            "Price ($)": dolar_price,
             "Income": income,
             "Amount": amount,
             "Status": status
