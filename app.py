@@ -1,7 +1,6 @@
 from library import *
 from utils.constants import *
 from services.Database import Database
-import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
 
