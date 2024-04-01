@@ -19,6 +19,31 @@ mean_price = line_filtered_df['Income'].sum() / line_filtered_df['Amount'].sum()
 
 line_filtered_df['Mean Price'] = [mean_price for x in range(line_filtered_df.shape[0])]
 
+card_col_1, card_col_2 = st.columns(2, gap="small")
+
+card_style = {
+    "card":{
+        "width": "100%",
+        "height": "100px",
+        "border-radius": "10px",
+        "box-shadow": "0 0 10px rgba(218,165,32,0.5)",
+    },
+}
+
+with card_col_1:
+    dollar_mean_price = st_card.card(
+        title = "%.2f $" % (line_filtered_df['Mean Price'].iloc[0] / 5),
+        text = "Dollar Mean Price",
+        styles=card_style
+    )
+
+with card_col_2:
+    real_mean_price = st_card.card(
+        title = "%.2f R$" % (line_filtered_df['Mean Price'].iloc[0]),
+        text = "Real Mean Price",
+        styles=card_style
+    )
+
 c1, c2 = st.columns(2, gap="small")
 
 with c1:
