@@ -64,7 +64,8 @@ with c1:
     )
 
     fig = go.Figure(data=[line_purchase, line_mean], layout=layout)
-    st.plotly_chart(fig)
+    with st.container(border=True):
+        st.plotly_chart(fig)
 
     # line_chart = st.line_chart(line_filtered_df, x="Data", y=["Price (R$)", "Mean Price"])
 
@@ -73,6 +74,7 @@ bar_filtered_df = bar_filtered_df.groupby(by="Status")['Income'].sum().reset_ind
 
 with c2:
     bar_purchase = go.Bar(x=['Buy'], y=bar_filtered_df[['Income']].iloc[0,:], name='Purchase', marker=dict(color='red'))
+
     try:
         bar_sellof = go.Bar(x=['Sell'], y=bar_filtered_df[['Income']].iloc[1,:], name='Sale', marker=dict(color='green'))
 
@@ -89,5 +91,6 @@ with c2:
     except:
         fig = go.Figure(data=[bar_purchase], layout=layout)
 
-    st.plotly_chart(fig)
+    with st.container(border=True):
+        st.plotly_chart(fig)
 
