@@ -8,6 +8,8 @@ COINS = [
     "Chainlink",
     "AEVO",
     "Chilliz",
+    "Render",
+    "Avalanche"
 ]
 
 OPS = [
@@ -18,4 +20,9 @@ OPS = [
 FUND = [
     "Dollar",
     "Real"
+]
+
+EXCHANGES = [
+    "Binance",
+    "EQI",
 ]
