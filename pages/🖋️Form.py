@@ -30,7 +30,7 @@ operation_r, coins_r, exchange_r = st.tabs(["Register Operation", "Register Coin
 with operation_r:
     data = st.date_input("Trade date")
     time = st.time_input("Trade time", step=60)
-    coin = st.selectbox("Select coin", options=coin_sheet['Coin'].values, index=False)
+    coin = st.selectbox("Select coin", options=coin_sheet['Nickname'].values, index=False)
     price = st.number_input("Coin Price", step=0.01, format="%.10f", value=None)
     income = st.number_input("Value Invested", step=0.01, value=None)
 
@@ -64,8 +64,7 @@ with operation_r:
     if register:
         if not data or not time or not coin or not price or not income or not status:
             st.warning("Report All Data.")
-        else:
-
+        else:   
             register_data = pd.DataFrame([{
                 "Data": data.strftime("%d-%m-%Y"),
                 "Time": time,
